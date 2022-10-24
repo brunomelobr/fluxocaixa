@@ -1,0 +1,19 @@
+﻿@inherits LayoutComponentBase
+<MudThemeProvider Theme="TemaPadrao.DefaultTheme" />
+<MudSnackbarProvider />
+<MudContainer MaxWidth="MaxWidth.Small">
+    <div class="d-flex flex-column">
+        <div class="d-flex justify-center">
+            <img src="/media/logo.jpg" style="max-width: 200px; max-height: 200px; " />
+        </div>
+        <MudText Typo="Typo.h5" Class="mt-6" Align="Align.Center">@_localizerMessages[nameof(Messages.ThePageYouWereLookingForDoesntExist)]</MudText>
+        <MudItem xs="12" sm="12" md="12">
+            <div class="pa-4 justify-center my-4 mud-text-align-center">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Link="/">@_localizerMessages[nameof(Messages.GoHome)]</MudButton>
+            </div>
+        </MudItem>
+    </div>
+</MudContainer>
+@code {
+
+}

@@ -1,0 +1,10 @@
+﻿dotnet ef migrations add <<INFORMAR NOME>> --project "BrunoMelo.FluxoCaixa.Data" --startup-project "BrunoMelo.FluxoCaixa.Data"  --output-dir Migrations
+dotnet ef database update <<INFORMAR NOME OU NÚMERO>> --project "BrunoMelo.FluxoCaixa.Data" --context Contexto --startup-project "BrunoMelo.FluxoCaixa.Data"
+dotnet ef migrations remove --project "BrunoMelo.FluxoCaixa.Data" --context Contexto --startup-project "BrunoMelo.FluxoCaixa.Data"
+
+
+dotnet ef database update --project "BrunoMelo.FluxoCaixa.Data" --context Contexto --startup-project "BrunoMelo.FluxoCaixa.Data"
+
+
+Atualizar Entity Framework (normalmente no Package Source tem que desmarcar as fontes secundárias e deixar apenas o NuGet):
+dotnet tool update --global dotnet-ef

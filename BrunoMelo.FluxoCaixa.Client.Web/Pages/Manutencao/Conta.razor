@@ -1,0 +1,31 @@
+﻿@page "/manutencao/conta"
+<MudGrid Class="mb-1">
+    <MudItem xs="9">
+        <BrunoMelo.FluxoCaixa.Client.Web.Shared.Components.PageTitle Title="@_localizerCampoEspecifico[nameof(CampoEspecifico.Contas)]"
+                   Description="@(ListModelView == null || ListModelView.Count() == 0 ?
+                                  string.Format(_localizerMessages[nameof(Messages.ThereIsNoXRegisteredSoFar)], _localizerCampoEspecifico[nameof(CampoEspecifico.Conta)].Value.ToLower())
+                                  : string.Empty)" />
+    </MudItem>
+    <MudItem xs="3" Class="@MudBlazorCssClass.Build().TitleBarActions()">
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="(()=>InvokeModalAsync())">@_localizer[nameof(Fields.New)]</MudButton>
+    </MudItem>
+</MudGrid>
+
+@if (ListModelView != null)
+{
+    foreach (var item in ListModelView)
+    {
+        <MudCard Class="@MudBlazorCssClass.Build().MarginBottom(4)" Elevation="0">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.body1"><b>@item.Data.Nome</b></MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudTooltip Text="@_localizerCampoEspecifico[nameof(MensagemEspecifica.Editar)]">
+                        <MudIconButton Icon="@Icons.Outlined.Edit" Color="Color.Default" OnClick="(()=>InvokeModalAsync(item.Data.ContaId))" />
+                    </MudTooltip>
+                </CardHeaderActions>
+            </MudCardHeader>
+        </MudCard>
+    }
+}

@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+
+		<IsPackable>false</IsPackable>
+
+		<SignAssembly>true</SignAssembly>
+
+		<AssemblyOriginatorKeyFile>BrunoMelo.FluxoCaixa.Teste.snk</AssemblyOriginatorKeyFile>
+
+		<Authors>Bruno Melo</Authors>
+		<Copyright>Copyright © 2022 Bruno Melo</Copyright>
+		<PackageProjectUrl>https://github.com/brunosouzamelo/fluxocaixa</PackageProjectUrl>
+
+		<Version>2.0.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Remove="C:\Users\BrunodeSouzaMelo\.nuget\packages\nuvtools.common\6.5.0\contentFiles\any\net6.0\nuvtoolslogo128.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="NUnit" Version="3.13.3" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+		<PackageReference Include="NuvTools.Common" Version="6.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BrunoMelo.FluxoCaixa.Client.Web.Models\BrunoMelo.FluxoCaixa.Client.Web.Models.csproj" />
+		<ProjectReference Include="..\BrunoMelo.FluxoCaixa.Data\BrunoMelo.FluxoCaixa.Data.csproj" />
+		<ProjectReference Include="..\BrunoMelo.FluxoCaixa.Services\BrunoMelo.FluxoCaixa.Services.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

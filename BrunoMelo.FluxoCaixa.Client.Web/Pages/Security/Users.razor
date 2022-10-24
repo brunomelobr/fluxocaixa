@@ -1,0 +1,47 @@
+﻿@page "/security/users"
+<MudGrid>
+    <MudItem xs="9">
+        <BrunoMelo.FluxoCaixa.Client.Web.Shared.Components.PageTitle Title="@_localizer[nameof(Fields.Users)]"
+                   Description="@(ListModelView == null || ListModelView.Count() == 0 ?
+                                  string.Format(_localizerMessages[nameof(Messages.ThereIsNoXRegisteredSoFar)], _localizer[nameof(Fields.User)].Value.ToLower())
+                                  : _localizerMessages[nameof(Messages.UsersRegistered)])" />
+    </MudItem>
+    <MudItem xs="3" Class="@MudBlazorCssClass.Build().TitleBarActions()">
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="(()=>InvokeModal())">@_localizer[nameof(Fields.New)]</MudButton>
+    </MudItem>
+</MudGrid>
+
+<MudTable Hover="true" Elevation="0" Items="ListModelView" Filter="Search">
+    <ToolBarContent>
+        <MudTextField @bind-Value="searchString" FullWidth=false Placeholder="@_localizerMessages[nameof(Messages.EnterYourSearch)]" 
+                      Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>@_localizer[nameof(Fields.Identifier)]</MudTh>
+        <MudTh>@_localizer[nameof(Fields.Name)]</MudTh>
+        <MudTh>@_localizer[nameof(Fields.Surname)]</MudTh>
+        <MudTh>@_localizer[nameof(Fields.Email)]</MudTh>
+        <MudTh>@_localizer[nameof(Fields.EmailConfirm)]</MudTh>
+        <MudTh>@_localizer[nameof(Fields.Active)]</MudTh>
+        <MudTh Style="text-align:right">@_localizer[nameof(Fields.Actions)]</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Name</MudTd>
+        <MudTd>@context.Surname</MudTd>
+        <MudTd>@context.Email</MudTd>
+        <MudTd><MudCheckBox @bind-Checked="@context.EmailConfirmed" ReadOnly Color="Color.Secondary"></MudCheckBox></MudTd>
+        <MudTd ><MudCheckBox @bind-Checked="@context.Status" ReadOnly Color="Color.Secondary"></MudCheckBox></MudTd>
+        <MudTd Style="text-align:right">
+            @if (context.Email != "bruno@rfmelo.com")
+            {
+                <MudTooltip Text="@_localizer[nameof(Fields.Profile)]">
+                    <MudIconButton Icon="@Icons.Outlined.PermIdentity" Color="Color.Default" OnClick="(()=>ManageRoles(context.Id))" />
+                </MudTooltip>
+                <MudTooltip Text="@_localizerCampoEspecifico[nameof(MensagemEspecifica.Editar)]">
+                    <MudIconButton Icon="@Icons.Outlined.Edit" Color="Color.Default" OnClick="(()=>ViewProfile(context.Id))" />
+                </MudTooltip>
+            }
+        </MudTd>
+    </RowTemplate>
+</MudTable>

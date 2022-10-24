@@ -1,0 +1,44 @@
+﻿@inject FluxoCaixa.Client.Services.Security.UserService userService
+<MudAppBar Elevation="1" Color="Color.Primary">
+    <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+    <MudText Typo="Typo.h6" Class="ml-4">
+        <img src="/media/logo.jpg" height="40px" />
+    </MudText>
+    <MudSpacer />
+    <MudMenu Direction="Direction.Left" OffsetX="true" Dense="true">
+        <ActivatorContent>
+            <MudAvatar Color="Color.Secondary">@FirstLetterOfName</MudAvatar>
+        </ActivatorContent>
+        <ChildContent>
+            <UserCard Class="mt-n2" />
+            <MudDivider Class="mb-2" />
+            <MudMenuItem Link="@Routes.Security.Account">
+                <MudGrid>
+                    <MudItem xs="3" sm="2">
+                        <MudIcon Icon="@Icons.Material.Outlined.Person"></MudIcon>
+                    </MudItem>
+                    <MudItem xs="9" sm="10">
+                        <MudText Class="align-self-center">
+                            @_localizer[nameof(Fields.Account)]
+                        </MudText>
+                    </MudItem>
+                </MudGrid>
+            </MudMenuItem>
+            <MudMenuItem OnClick="Logout">
+                <MudGrid>
+                    <MudItem xs="3" sm="2">
+                        <MudIcon Icon="@Icons.Material.Filled.Logout"></MudIcon>
+                    </MudItem>
+                    <MudItem xs="9" sm="10" Class="align-self-center">
+                        <MudText>
+                            @_localizer[nameof(Fields.Logout)]
+                        </MudText>
+                    </MudItem>
+                </MudGrid>
+            </MudMenuItem>
+        </ChildContent>
+    </MudMenu>
+</MudAppBar>
+<MudDrawer @bind-Open="_drawerOpen" Elevation="1">
+    <NavMenu />
+</MudDrawer>

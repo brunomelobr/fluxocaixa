@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>BrunoMelo.FluxoCaixa.Models.snk</AssemblyOriginatorKeyFile>
+		<Authors>Bruno Melo</Authors>
+		<Copyright>Copyright © 2022 Bruno Melo</Copyright>
+		<PackageProjectUrl>https://github.com/brunosouzamelo/fluxocaixa</PackageProjectUrl>
+		<Version>2.0.0</Version>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Data\Util\**" />
+		<EmbeddedResource Remove="Data\Util\**" />
+		<None Remove="Data\Util\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="NuvTools.Security" Version="6.5.0" />
+		<PackageReference Include="NuvTools.Security.Identity.Models" Version="6.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BrunoMelo.FluxoCaixa.Resources\BrunoMelo.FluxoCaixa.Resources.csproj" />
+	</ItemGroup>
+
+</Project>

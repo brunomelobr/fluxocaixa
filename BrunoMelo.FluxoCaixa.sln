@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.Models", "BrunoMelo.FluxoCaixa.Models\BrunoMelo.FluxoCaixa.Models.csproj", "{F5214DB1-CCBA-4C16-B810-03237E4E6CDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.Resources", "BrunoMelo.FluxoCaixa.Resources\BrunoMelo.FluxoCaixa.Resources.csproj", "{E741D83F-3365-4C8C-B94D-81D6BB8AD0A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.Data", "BrunoMelo.FluxoCaixa.Data\BrunoMelo.FluxoCaixa.Data.csproj", "{A2911A29-92D0-4784-9ED4-F4249FE52373}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.Services", "BrunoMelo.FluxoCaixa.Services\BrunoMelo.FluxoCaixa.Services.csproj", "{0AB4AA90-65AC-4923-B38C-20764DDA479A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.Client", "BrunoMelo.FluxoCaixa.Client\BrunoMelo.FluxoCaixa.Client.csproj", "{F0541769-95DE-459F-BCFC-CE8CD13BE4E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.Client.Web", "BrunoMelo.FluxoCaixa.Client.Web\BrunoMelo.FluxoCaixa.Client.Web.csproj", "{127E1BE9-7990-46E6-A4AE-5D4FF6BDBA66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{B9FF7096-7BEA-4513-8641-356DD38B977F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{B96557CE-657F-46F9-9BAB-728E74E3D6BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{D4446493-E0FE-4236-82AF-D7B5AD494669}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.Client.Web.Models", "BrunoMelo.FluxoCaixa.Client.Web.Models\BrunoMelo.FluxoCaixa.Client.Web.Models.csproj", "{A9D3DD2B-70C8-4C91-9456-B9F7D662CA62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.API", "BrunoMelo.FluxoCaixa.API\BrunoMelo.FluxoCaixa.API.csproj", "{7B502870-CA37-4738-B652-8BB8A02BA57B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrunoMelo.FluxoCaixa.Test", "BrunoMelo.FluxoCaixa.Test\BrunoMelo.FluxoCaixa.Test.csproj", "{6A134EB9-4F5F-469C-87E8-D58216A0B719}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BrunoMelo.FluxoCaixa.Documentacao", "BrunoMelo.FluxoCaixa.Documentacao\BrunoMelo.FluxoCaixa.Documentacao.shproj", "{1F2AD620-FB3C-4A4A-ABEE-1F934A746DF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5214DB1-CCBA-4C16-B810-03237E4E6CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5214DB1-CCBA-4C16-B810-03237E4E6CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5214DB1-CCBA-4C16-B810-03237E4E6CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5214DB1-CCBA-4C16-B810-03237E4E6CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E741D83F-3365-4C8C-B94D-81D6BB8AD0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E741D83F-3365-4C8C-B94D-81D6BB8AD0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E741D83F-3365-4C8C-B94D-81D6BB8AD0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E741D83F-3365-4C8C-B94D-81D6BB8AD0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2911A29-92D0-4784-9ED4-F4249FE52373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2911A29-92D0-4784-9ED4-F4249FE52373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2911A29-92D0-4784-9ED4-F4249FE52373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2911A29-92D0-4784-9ED4-F4249FE52373}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AB4AA90-65AC-4923-B38C-20764DDA479A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AB4AA90-65AC-4923-B38C-20764DDA479A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AB4AA90-65AC-4923-B38C-20764DDA479A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AB4AA90-65AC-4923-B38C-20764DDA479A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0541769-95DE-459F-BCFC-CE8CD13BE4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0541769-95DE-459F-BCFC-CE8CD13BE4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0541769-95DE-459F-BCFC-CE8CD13BE4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0541769-95DE-459F-BCFC-CE8CD13BE4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{127E1BE9-7990-46E6-A4AE-5D4FF6BDBA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127E1BE9-7990-46E6-A4AE-5D4FF6BDBA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127E1BE9-7990-46E6-A4AE-5D4FF6BDBA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127E1BE9-7990-46E6-A4AE-5D4FF6BDBA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D3DD2B-70C8-4C91-9456-B9F7D662CA62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D3DD2B-70C8-4C91-9456-B9F7D662CA62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D3DD2B-70C8-4C91-9456-B9F7D662CA62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D3DD2B-70C8-4C91-9456-B9F7D662CA62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B502870-CA37-4738-B652-8BB8A02BA57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B502870-CA37-4738-B652-8BB8A02BA57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B502870-CA37-4738-B652-8BB8A02BA57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B502870-CA37-4738-B652-8BB8A02BA57B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A134EB9-4F5F-469C-87E8-D58216A0B719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A134EB9-4F5F-469C-87E8-D58216A0B719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A134EB9-4F5F-469C-87E8-D58216A0B719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A134EB9-4F5F-469C-87E8-D58216A0B719}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F5214DB1-CCBA-4C16-B810-03237E4E6CDF} = {D4446493-E0FE-4236-82AF-D7B5AD494669}
+		{E741D83F-3365-4C8C-B94D-81D6BB8AD0A9} = {D4446493-E0FE-4236-82AF-D7B5AD494669}
+		{A2911A29-92D0-4784-9ED4-F4249FE52373} = {B9FF7096-7BEA-4513-8641-356DD38B977F}
+		{0AB4AA90-65AC-4923-B38C-20764DDA479A} = {B9FF7096-7BEA-4513-8641-356DD38B977F}
+		{F0541769-95DE-459F-BCFC-CE8CD13BE4E2} = {B96557CE-657F-46F9-9BAB-728E74E3D6BA}
+		{127E1BE9-7990-46E6-A4AE-5D4FF6BDBA66} = {B96557CE-657F-46F9-9BAB-728E74E3D6BA}
+		{A9D3DD2B-70C8-4C91-9456-B9F7D662CA62} = {D4446493-E0FE-4236-82AF-D7B5AD494669}
+		{7B502870-CA37-4738-B652-8BB8A02BA57B} = {B9FF7096-7BEA-4513-8641-356DD38B977F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBC2C74F-B61A-4FFF-A1AC-5A412A81FDD8}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		BrunoMelo.FluxoCaixa.Documentacao\BrunoMelo.FluxoCaixa.Documentacao.projitems*{1f2ad620-fb3c-4a4a-abee-1f934a746df3}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal

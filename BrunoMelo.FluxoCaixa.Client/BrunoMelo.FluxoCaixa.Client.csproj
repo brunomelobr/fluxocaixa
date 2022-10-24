@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Authors>Bruno Melo</Authors>
+    <Copyright>Copyright © 2022 Bruno Melo</Copyright>
+    <PackageProjectUrl>https://github.com/brunosouzamelo/fluxocaixa</PackageProjectUrl>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>BrunoMelo.FluxoCaixa.Client.snk</AssemblyOriginatorKeyFile>
+    <Version>2.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\BrunodeSouzaMelo\.nuget\packages\nuvtools.common\6.5.0\contentFiles\any\net6.0\nuvtoolslogo128.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+    <PackageReference Include="NuvTools.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="NuvTools.Common" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrunoMelo.FluxoCaixa.Client.Web.Models\BrunoMelo.FluxoCaixa.Client.Web.Models.csproj" />
+    <ProjectReference Include="..\BrunoMelo.FluxoCaixa.Models\BrunoMelo.FluxoCaixa.Models.csproj" />
+  </ItemGroup>
+
+</Project>

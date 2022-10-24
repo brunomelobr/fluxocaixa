@@ -1,0 +1,41 @@
+﻿@page "/security/roles"
+<MudGrid>
+    <MudItem xs="9">
+        <BrunoMelo.FluxoCaixa.Client.Web.Shared.Components.PageTitle Title="@_localizer[nameof(Fields.Roles)]"
+                   Description="@(ListModelView == null || ListModelView.Count() == 0 ?
+                                  string.Format(_localizerMessages[nameof(Messages.ThereIsNoXRegisteredSoFar)], _localizer[nameof(Fields.Role)].Value.ToLower())
+                                  : _localizerMessages[nameof(Messages.RolesRegistered)])" />
+    </MudItem>
+    <MudItem xs="3" Class="@MudBlazorCssClass.Build().TitleBarActions()">
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="(()=>InvokeModal())">@_localizer[nameof(Fields.New)]</MudButton>
+    </MudItem>
+</MudGrid>
+
+@if (ListModelView != null)
+{
+    <MudGrid>
+        @foreach (var item in ListModelView)
+        {
+            <MudItem xs="12" sm="6" md="4">
+                <MudCard Class="@MudBlazorCssClass.Build().MarginBottom(4)" Style="@CustomStyle.Build().Height(75)" Elevation="0">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudText Typo="Typo.body1"><b>@item.Name</b></MudText>
+                        </CardHeaderContent>
+                        <CardHeaderActions>
+                            @if (item.Name != "Administrador" && item.Name != "Participante")
+                            {
+                                <MudTooltip Text="@_localizer[nameof(Fields.Permissions)]">
+                                    <MudIconButton Icon="@Icons.Outlined.PermIdentity" Color="Color.Default" OnClick="(() => ManagePermissions(item.Id))" />
+                                </MudTooltip>
+                                <MudTooltip Text="@_localizer[nameof(Fields.Role)]">
+                                    <MudIconButton Icon="@Icons.Outlined.Edit" Color="Color.Default" OnClick="(()=>InvokeModal(item))" />
+                                </MudTooltip>
+                            }
+                        </CardHeaderActions>
+                    </MudCardHeader>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+}

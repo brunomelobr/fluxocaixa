@@ -1,0 +1,33 @@
+﻿@page "/security/users/{id}/roles/"
+<MudGrid>
+    <MudItem xs="9">
+        <BrunoMelo.FluxoCaixa.Client.Web.Shared.Components.PageTitle Title="@_localizer[nameof(Fields.Roles)]"/>
+    </MudItem>
+    <MudItem xs="3" Class="@MudBlazorCssClass.Build().TitleBarActions()">
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SaveAsync" ButtonType="ButtonType.Submit">@_localizer[nameof(Fields.Update)]</MudButton>
+        <MudButton Variant="Variant.Text" Class="@MudBlazorCssClass.Build().MarginRight(2)" OnClick="(() => GoBack())">@_localizer[nameof(Fields.Back)]</MudButton>
+    </MudItem>
+</MudGrid>
+
+@if (ListModelView != null)
+{
+    <MudGrid>
+        @foreach (var item in ListModelView)
+        {
+            <MudItem xs="12" sm="6" md="4">
+                <MudCard Class="@MudBlazorCssClass.Build().MarginBottom(4)" Elevation="0">
+                    <MudCardHeader>
+                        <CardHeaderContent>
+                            <MudGrid>
+                                <MudItem xs="12" Class="d-flex align-center">
+                                    <MudCheckBox @bind-Checked="@item.Selected" Color="Color.Secondary" Class="mr-4"></MudCheckBox>
+                                    <MudText Typo="Typo.body1"><b>@item.Data.Name</b></MudText>
+                                </MudItem>
+                            </MudGrid>
+                        </CardHeaderContent>
+                    </MudCardHeader>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+}

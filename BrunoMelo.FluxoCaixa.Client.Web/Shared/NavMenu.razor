@@ -1,0 +1,67 @@
+﻿@using System.Security.Claims
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@using Microsoft.AspNetCore.Components.Authorization
+<UserCard />
+<MudDivider Class="mb-4" />
+<MudNavMenu>
+    @if (PossuiPermissao(Permissions.Transacao.View))
+    {
+        <MudNavLink Href="@Routes.Operacional.Transacao" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Map" Class="mt-2">
+            @_localizerCampoEspecifico[nameof(CampoEspecifico.Transacoes)]
+        </MudNavLink>
+    }
+
+    @if (PossuiPermissaoManutencao())
+    {
+        <hr style="height: 1px; background-color: #a9a9a9; color: #a9a9a9; border: 0; width: 80%; align-self: center; margin-left: auto; margin-right: auto;margin-top:18px; margin-bottom: 11px;"/>
+
+        @if (PossuiPermissao(Permissions.Conta.View))
+        {
+            <MudNavLink Href="@Routes.Manutencao.Conta" Icon="@Icons.Material.Outlined.Business">
+                @_localizerCampoEspecifico[nameof(CampoEspecifico.Contas)]
+            </MudNavLink>
+        }
+    }
+
+    @if (PossuiPermissaoSeguranca())
+    {
+        <MudListSubheader Class="mt-2 mb-n2">
+            @_localizer[nameof(Fields.Security)]
+        </MudListSubheader>
+        @if (PossuiPermissao(Permissions.Users.View))
+        {
+            <MudNavLink Href="@Routes.Security.Users" Icon="@Icons.Material.Outlined.Person">
+                @_localizer[nameof(Fields.Users)]
+            </MudNavLink>
+        }
+        @if (PossuiPermissao(Permissions.Roles.View))
+        {
+            <MudNavLink Href="@Routes.Security.Roles" Icon="@Icons.Material.Outlined.AssignmentInd">@_localizer[nameof(Fields.Roles)]</MudNavLink>
+        }
+    }
+</MudNavMenu>
+
+@code {
+    private ClaimsPrincipal AuthenticationStateProviderUser { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        AuthenticationStateProviderUser = await _stateProvider.GetAuthenticationStateProviderUserAsync();
+    }
+
+    private bool PossuiPermissao(string permissao)
+    {
+        return _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, permissao).Result.Succeeded;
+    }
+
+    private bool PossuiPermissaoManutencao()
+    {
+        return PossuiPermissao(Permissions.Conta.View);
+    }
+
+    private bool PossuiPermissaoSeguranca()
+    {
+        return PossuiPermissao(Permissions.Roles.View)
+                || PossuiPermissao(Permissions.Users.View);
+    }
+}

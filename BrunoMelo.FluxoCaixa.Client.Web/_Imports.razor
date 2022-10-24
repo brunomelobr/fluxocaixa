@@ -1,0 +1,56 @@
+﻿@*Libraries*@
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Identity;
+@using MudBlazor
+@using Blazored.LocalStorage;
+@using ChartJs.Blazor
+
+@*Client Shared Services*@
+@using BrunoMelo.FluxoCaixa.Client.Services.Security
+@using BrunoMelo.FluxoCaixa.Client.Web.Services.Security
+@using BrunoMelo.FluxoCaixa.Client.Web.Services.Preferences
+@using BrunoMelo.FluxoCaixa.Client.Web.Services.Interceptors
+
+@*Shared Libraries*@
+@using BrunoMelo.FluxoCaixa.Client.Web.Shared
+@using BrunoMelo.FluxoCaixa.Client.Web.Shared.Components
+@using BrunoMelo.FluxoCaixa.Client.Web.Shared.Dialogs
+@using BrunoMelo.FluxoCaixa.Client.Web.Infrastructure.Settings
+@using NuvTools.Resources
+@using BrunoMelo.FluxoCaixa.Resources
+@using BrunoMelo.FluxoCaixa.Models
+@using BrunoMelo.FluxoCaixa.Client.Web.Models
+@using BrunoMelo.FluxoCaixa.Client.Web.Extensions
+
+@*Security*@
+@using BrunoMelo.FluxoCaixa.Models.Security
+@using BrunoMelo.FluxoCaixa.Client.Web.Pages.Authentication
+@using BrunoMelo.FluxoCaixa.Client.Web.Infrastructure.Authentication
+
+
+@attribute [Authorize]
+@inject AuthenticationService _authenticationManager
+@inject AccountService _accountManager
+@inject NavigationManager _navigationManager
+@inject ApplicationStateProvider _stateProvider
+@inject IAuthorizationService _authorizationService
+@inject ISnackbar _snackBar
+@inject IDialogService _dialogService
+@inject HttpInterceptorService _interceptor
+@inject PreferenceService _preferenceManager
+@inject ILocalStorageService _localStorage
+@inject IJSRuntime _jsRuntime
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Fields> _localizer
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Messages> _localizerMessages
+@inject Microsoft.Extensions.Localization.IStringLocalizer<CampoEspecifico> _localizerCampoEspecifico
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MensagemEspecifica> _localizerMensagemEspecifica

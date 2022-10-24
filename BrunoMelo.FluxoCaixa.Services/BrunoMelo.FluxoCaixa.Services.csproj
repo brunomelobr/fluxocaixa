@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>BrunoMelo.FluxoCaixa.Services.snk</AssemblyOriginatorKeyFile>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Authors>Bruno Melo</Authors>
+		<Copyright>Copyright © 2022 Bruno Melo</Copyright>
+		<PackageProjectUrl>https://github.com/brunosouzamelo/fluxocaixa</PackageProjectUrl>
+		<Version>2.0.0</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BrunoMelo.FluxoCaixa.Client.Web.Models\BrunoMelo.FluxoCaixa.Client.Web.Models.csproj" />
+		<ProjectReference Include="..\BrunoMelo.FluxoCaixa.Data\BrunoMelo.FluxoCaixa.Data.csproj" />
+		<ProjectReference Include="..\BrunoMelo.FluxoCaixa.Models\BrunoMelo.FluxoCaixa.Models.csproj" />
+	</ItemGroup>
+
+</Project>

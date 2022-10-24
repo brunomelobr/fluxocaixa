@@ -1,0 +1,98 @@
+﻿@using System.Globalization
+<EditForm EditContext="@EditContext" OnSubmit="@SalvarAsync">
+    <ObjectGraphDataAnnotationsValidator />
+    <MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h6">
+                <MudIcon Icon="@Icons.Material.Outlined.TextSnippet" Class="@MudBlazorCssClass.Build().ModalTitleIcon()" /> @_localizerCampoEspecifico[nameof(CampoEspecifico.Conta)]
+            </MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12" sm="4">
+                    <MudSelect T="short?" Label="@_localizer[nameof(Fields.Type)]"
+                               For="(() => ObjetoEdicao.TipoTransacaoIdNulo)" @bind-Value="ObjetoEdicao.TipoTransacaoIdNulo">
+                        @if (ListaTipoTransacao != null && ListaTipoTransacao.Count() > 0)
+                        {
+                            @foreach (var item in ListaTipoTransacao)
+                            {
+                                <MudSelectItem Value="@((short?)item.TipoTransacaoId)">@item.Nome</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" sm="4">
+                    <MudDatePicker For="@(() => ObjetoEdicao.DataNulo)" Editable="true"
+                                   DateFormat="@CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern"
+                                   Label="@_localizer[nameof(Fields.Date)]" ShowWeekNumbers="true" @bind-Date="ObjetoEdicao.DataNulo" />
+                </MudItem>
+                <MudItem xs="12" sm="4">
+                    <MudNumericField For="(()=>ObjetoEdicao.ValorNulo)" Format="N2" HideSpinButtons="true" T="decimal?"
+                                     @bind-Value="ObjetoEdicao.ValorNulo" Label="@_localizer[nameof(Fields.Value)]"></MudNumericField>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField For="@(() => ObjetoEdicao.Data.Descricao)" Label="@_localizer[nameof(Fields.Description)]" @bind-Value="ObjetoEdicao.Data.Descricao" />
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudSelect T="int?" Label="@_localizerCampoEspecifico[nameof(CampoEspecifico.Categoria)]"
+                               For="(() => ObjetoEdicao.CategoriaIdNulo)" @bind-Value="ObjetoEdicao.CategoriaIdNulo">
+                        @if (ListaCategorias != null && ListaCategorias.Count() > 0)
+                        {
+                            @foreach (var item in ListaCategorias)
+                            {
+                                <MudSelectItem Value="@((int?)item.CategoriaId)">@item.Nome</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudSelect T="int?" Label="@_localizerCampoEspecifico[nameof(CampoEspecifico.Conta)]"
+                               For="(() => ObjetoEdicao.ContaIdNulo)" @bind-Value="ObjetoEdicao.ContaIdNulo">
+                        @if (ListaContas != null && ListaContas.Count() > 0)
+                        {
+                            @foreach (var item in ListaContas)
+                            {
+                                <MudSelectItem Value="@((int?)item.ContaId)">@item.Nome</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            @if (ExibeConfirmacaoExclusao)
+            {
+                <MudGrid Class="@MudBlazorCssClass.Build().ModalActions().FlexInline()">
+                    <MudItem xs="3" Class="@MudBlazorCssClass.Build().AlignSelfCenter()">
+                        <MudText>@_localizerMessages[nameof(Messages.ConfirmDeletion)]</MudText>
+                    </MudItem>
+                    <MudItem xs="9" Class="@MudBlazorCssClass.Build().AlignSelfCenter()">
+                        <MudButton Variant="Variant.Text" OnClick="(() => ExibeConfirmacaoExclusao = false)">@_localizer[nameof(NuvTools.Resources.Fields.Cancel)]</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" OnClick="ExcluirAsync">@_localizer[nameof(NuvTools.Resources.Fields.Confirm)]</MudButton>
+                    </MudItem>
+                </MudGrid>
+            }
+            else
+            {
+                <MudGrid Class="@MudBlazorCssClass.Build().ModalActions()">
+                    <MudItem xs="2">
+                        @if (ObjetoEdicao != null && ObjetoEdicao.Data.TransacaoId > 0)
+                        {
+                            <MudButton Variant="Variant.Filled" OnClick="(() => ExibeConfirmacaoExclusao = true)" Color="Color.Secondary">@_localizer[nameof(Fields.Delete)]</MudButton>
+                        }
+                    </MudItem>
+                    <MudItem xs="10" Class="@MudBlazorCssClass.Build().ActionsRight()">
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-2">@_localizer[nameof(Fields.Save)]</MudButton>
+                        <MudButton Variant="Variant.Text" OnClick="Cancelar" Color="Color.Default">@_localizer[nameof(Fields.Cancel)]</MudButton>
+                    </MudItem>
+                </MudGrid>
+            }
+        </DialogActions>
+    </MudDialog>
+</EditForm>
+<style>
+    .mud-dialog-container {
+        overflow: auto;
+        flex-wrap: wrap;
+    }
+</style>

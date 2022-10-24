@@ -1,0 +1,12 @@
+﻿@namespace BrunoMelo.FluxoCaixa.Client.Web.Shared.Components
+<MudText Typo="Typo.h5" Color="Color.Primary" Class="mb-1 mt-2"><b>@Title</b></MudText>
+<MudText Color="Color.Surface" Class="@(!string.IsNullOrEmpty(Description) ? "mb-1" : MudBlazorCssClass.Build().Hide())">
+    @if (DescriptionBold) { <b>@Description</b> } else { @Description }
+</MudText>
+
+@code
+{
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string Description { get; set; }
+    [Parameter] public bool DescriptionBold { get; set; }
+}

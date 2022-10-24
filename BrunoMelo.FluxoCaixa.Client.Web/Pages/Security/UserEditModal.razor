@@ -1,0 +1,54 @@
+﻿<EditForm EditContext="@EditContext" OnSubmit="@SaveAsync">
+    <DataAnnotationsValidator />
+    <MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h6">
+                <MudIcon Icon="@Icons.Material.Outlined.VerifiedUser" Class="@MudBlazorCssClass.Build().ModalTitleIcon()" />
+                @_localizer[nameof(Fields.User)]
+            </MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12" sm="6">
+                    <MudTextField For="@(() => ObjetoEdicao.Name)" @bind-Value="ObjetoEdicao.Name" Label="@_localizer[nameof(Fields.Name)]" />
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField For="@(() => ObjetoEdicao.Surname)" @bind-Value="ObjetoEdicao.Surname" Label="@_localizer[nameof(Fields.Surname)]" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string" Label="@_localizer[nameof(Fields.Email)]"
+                                  @bind-Value="ObjetoEdicao.Email" For="@(() => ObjetoEdicao.Email)"></MudTextField>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField For="@(() => ObjetoEdicao.Password)" InputType="@PasswordInput"
+                                  Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="TogglePasswordVisibility"
+                                  @bind-Value="ObjetoEdicao.Password" Required="true" Label="@_localizer[nameof(Fields.Password)]" />
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudTextField For="@(() => ObjetoEdicao.ConfirmPassword)" InputType="InputType.Password"
+                                  @bind-Value="ObjetoEdicao.ConfirmPassword" Label="@_localizer[nameof(Fields.PasswordConfirm)]" />
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudCheckBox @bind-Checked="@ObjetoEdicao.Status" Label="@_localizer[nameof(Fields.ActivateUserQuestion)]" Color="Color.Primary"></MudCheckBox>
+                </MudItem>
+                <MudItem xs="12" sm="6">
+                    <MudCheckBox @bind-Checked="@ObjetoEdicao.EmailConfirmed" Label="@_localizer[nameof(Fields.AutoConfirmEmailQuestion)]" Color="Color.Primary"></MudCheckBox>
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudGrid Class="@MudBlazorCssClass.Build().ModalActions()">
+                <MudItem xs="12" Class="@MudBlazorCssClass.Build().ActionsRight()">
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-2">@_localizer[nameof(Fields.Save)]</MudButton>
+                    <MudButton Variant="Variant.Text" OnClick="Cancel" Color="Color.Default">@_localizer[nameof(Fields.Cancel)]</MudButton>
+                </MudItem>
+            </MudGrid>
+        </DialogActions>
+    </MudDialog>
+</EditForm>
+<style>
+    .mud-dialog-container {
+        overflow: auto;
+        flex-wrap: wrap;
+    }
+</style>

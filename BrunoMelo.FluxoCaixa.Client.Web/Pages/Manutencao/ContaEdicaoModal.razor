@@ -1,0 +1,53 @@
+﻿@using System.Globalization
+<EditForm EditContext="@EditContext" OnSubmit="@SalvarAsync">
+    <DataAnnotationsValidator />
+    <MudDialog>
+        <TitleContent>
+            <MudText Typo="Typo.h6">
+                <MudIcon Icon="@Icons.Material.Outlined.TextSnippet" Class="@MudBlazorCssClass.Build().ModalTitleIcon()" /> @_localizerCampoEspecifico[nameof(CampoEspecifico.Conta)]
+            </MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTextField For="@(() => ObjetoEdicao.Nome)" Label="@_localizer[nameof(Fields.Name)]" @bind-Value="ObjetoEdicao.Nome" />
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            @if (ExibeConfirmacaoExclusao)
+            {
+                <MudGrid Class="@MudBlazorCssClass.Build().ModalActions().FlexInline()">
+                    <MudItem xs="3" Class="@MudBlazorCssClass.Build().AlignSelfCenter()">
+                        <MudText>@_localizerMessages[nameof(Messages.ConfirmDeletion)]</MudText>
+                    </MudItem>
+                    <MudItem xs="9" Class="@MudBlazorCssClass.Build().AlignSelfCenter()">
+                        <MudButton Variant="Variant.Text" OnClick="(() => ExibeConfirmacaoExclusao = false)">@_localizer[nameof(NuvTools.Resources.Fields.Cancel)]</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Secondary" OnClick="ExcluirAsync">@_localizer[nameof(NuvTools.Resources.Fields.Confirm)]</MudButton>
+                    </MudItem>
+                </MudGrid>
+            }
+            else
+            {
+                <MudGrid Class="@MudBlazorCssClass.Build().ModalActions()">
+                    <MudItem xs="2">
+                        @if (ObjetoEdicao != null && ObjetoEdicao.ContaId > 0)
+                        {
+                            <MudButton Variant="Variant.Filled" OnClick="(() => ExibeConfirmacaoExclusao = true)" Color="Color.Secondary">@_localizer[nameof(Fields.Delete)]</MudButton>
+                        }
+                    </MudItem>
+                    <MudItem xs="10" Class="@MudBlazorCssClass.Build().ActionsRight()">
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-2">@_localizer[nameof(Fields.Save)]</MudButton>
+                        <MudButton Variant="Variant.Text" OnClick="Cancelar" Color="Color.Default">@_localizer[nameof(Fields.Cancel)]</MudButton>
+                    </MudItem>
+                </MudGrid>
+            }
+        </DialogActions>
+    </MudDialog>
+</EditForm>
+<style>
+    .mud-dialog-container {
+        overflow: auto;
+        flex-wrap: wrap;
+    }
+</style>

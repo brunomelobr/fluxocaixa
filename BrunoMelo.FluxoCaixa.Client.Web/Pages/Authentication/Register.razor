@@ -1,0 +1,162 @@
+﻿@page "/register"
+@attribute [AllowAnonymous]
+<MudGrid xs="12" Spacing="0" Class="ma-0">
+    <MudItem xs="12" Class="">
+    <EditForm EditContext="EditContext" OnValidSubmit="SubmitAsync">
+    <DataAnnotationsValidator />
+        <MudGrid Spacing="0">
+            <MudItem xs="1" Class="flex-grow-1">
+            </MudItem>
+            <MudItem xs="10">
+                <MudGrid Spacing="0" Class="d-flex justify-center">
+                <MudItem xs="12" Class="logincontent">
+                    <MudGrid xs="12" Spacing="0" Class="logincolumnSM loginbox loginboxSM">
+                        <MudItem xs="12" Style="text-align:center;padding-top:20px">
+                               <MudGrid>
+                                <MudItem xs="12">
+                                    <div class="d-flex justify-center">
+                                        <img src="/media/logo.jpg" style="max-width: 180px; max-height: 200px; "/>
+                                    </div>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <div class="d-flex justify-center">
+                                        <MudText>@_localizer[nameof(Fields.AlreadyHaveAnAccountQuestion)] <MudLink Href="@Routes.Security.Login">@_localizer[nameof(Fields.SignIn)]</MudLink></MudText>
+                                    </div>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudTextField For="@(() => ObjetoEdicao.Name)" Variant="Variant.Outlined" @bind-Value="ObjetoEdicao.Name" Label="@_localizer[nameof(Fields.Name)]" />
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudTextField For="@(() => ObjetoEdicao.Surname)" Variant="Variant.Outlined" @bind-Value="ObjetoEdicao.Surname" Label="@_localizer[nameof(Fields.Surname)]" />
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudTextField T="string" Label="@_localizer[nameof(Fields.Email)]" Variant="Variant.Outlined"
+                                                  @bind-Value="ObjetoEdicao.Email" For="@(() => ObjetoEdicao.Email)"></MudTextField>
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudTextField For="@(() => ObjetoEdicao.Password)" InputType="@PasswordInput"
+                                                  Variant="Variant.Outlined"
+                                                  Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="TogglePasswordVisibility"
+                                                  @bind-Value="ObjetoEdicao.Password" Required="true" Label="@_localizer[nameof(Fields.Password)]" />
+                                </MudItem>
+                                <MudItem xs="12">
+                                    <MudTextField For="@(() => ObjetoEdicao.ConfirmPassword)" InputType="InputType.Password"
+                                                  Variant="Variant.Outlined"
+                                                  @bind-Value="ObjetoEdicao.ConfirmPassword" Label="@_localizer[nameof(Fields.PasswordConfirm)]" />
+                                </MudItem>
+                                <MudItem xs="12" Class="d-flex justify-center">
+                                    <MudButton ButtonType="ButtonType.Button" OnClick="SubmitAsync" Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width: 100%;">@_localizer[nameof(Fields.Register)]</MudButton>
+                                </MudItem>
+                            </MudGrid>
+                        </MudItem>
+                    </MudGrid>
+                </MudItem>
+                <MudItem>
+                    <span></span>
+                </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem xs="1" Class="flex-grow-1">
+            </MudItem>
+        </MudGrid>
+    </EditForm>
+    </MudItem>
+</MudGrid>
+
+<style>
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active
+    {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+    body,html,.logincontent, .logincontentXS
+    {
+        background-color:#EFEFEF;
+        height:100%;
+        margin:0;
+    }
+    .logincontent
+    {
+        display: flex;
+        justify-content: center;
+        height:100vh;
+        background-color:#EFEFEF;
+    }
+    .logincontentXS
+    {
+        display: flex;
+        justify-content: center;
+        background-color: #FFFFFF!important;
+    }
+    .logincolumn
+    {
+        min-width:320px;
+        max-width:500px;
+        background-color:#EFEFEF;
+    }
+    .logincolumnXS
+    {
+        text-align:center;
+        background-color:#FFFFFF!important;
+    }
+    .logincolumnSM
+    {
+        width:500px!important;
+    }
+    .loginbox, .loginboxXS
+    {
+        border:solid 1px #CDCDCD;
+        border-radius:3px;
+        width:100%;
+        padding-left:20px;
+        padding-right:20px;
+        padding-top:20px;
+        padding-bottom:20px;
+        align-self:center;
+        background-color:#FFFFFF;
+    }
+    .loginboxMDXL
+    {
+        max-height:400px;
+    }
+    .loginboxXS
+    {
+        border:0!important;
+    }
+   .forgotpassword 
+   {
+       font-weight:400;
+   }
+   .forgotpassword a
+   {
+       font-size:14px;
+   }
+   .noregister
+   {
+       text-align:center;
+   }
+   .noregister p
+   {
+       font-size:13px;
+       font-weight:500;
+       color:#676767;
+   }
+   .welcome
+   {
+         color:#F5C15C;
+         font-size:21px;
+         font-weight:500;
+   }
+   .btnregister 
+   {
+    color: #A08812;
+    border-color:#A08812;
+    
+   }
+   .btnregister span.mud-button-label
+   {
+        font-size:13px;
+   }
+</style>

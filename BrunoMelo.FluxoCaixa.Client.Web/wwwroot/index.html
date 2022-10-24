@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Bruno Melo - Fluxo Caixa</title>
+    <base href="/" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="_content/MudBlazor/MudBlazor.min.css?v=5.0.5" rel="stylesheet" />
+    <link href="css/loader.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app">
+        <style>
+            @keyframes slide {
+                0% {
+                    transform: translateX(-25%);
+                }
+
+                100% {
+                    transform: translateX(25%);
+                }
+            }
+
+            .mud-wasm {
+                animation: slide 3s ease-in-out infinite alternate;
+                background-image: linear-gradient(-60deg,#153389 50%,#264CBA 50%);
+                bottom: 0;
+                left: -50%;
+                opacity: .5;
+                position: fixed;
+                right: -50%;
+                top: 0;
+                z-index: -1
+            }
+
+            .mud-wasm-cont {
+                left: 50%;
+                padding: 10vmin;
+                position: fixed;
+                text-align: center;
+                top: 50%;
+                transform: translate(-50%,-50%)
+            }
+        </style>
+
+        <div style="height:100%;width:100%;margin:0;position:fixed;">
+            <div class="mud-wasm"></div>
+            <div class="mud-wasm" style="animation-direction:alternate-reverse;animation-duration:4s;"></div>
+            <div class="mud-wasm" style="animation-duration:5s;"></div>
+            <div class="mud-wasm-cont">
+                <img src="media/logo.jpg" width="170" />
+            </div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        Ocorreu um erro.
+        <a href="" class="reload">Recarregue a página, por favor.</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script type="text/javascript">
+        function saveAsFile(filename, fileContent) {
+            var link = document.createElement('a');
+            link.download = filename;
+            link.href = "data:text/csv;charset=utf-8," + encodeURIComponent(fileContent)
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadFromUrl(options) {
+            const anchorElement = document.createElement('a');
+            anchorElement.href = options.url;
+            anchorElement.download = options.fileName ?? '';
+            anchorElement.click();
+            anchorElement.remove();
+        }
+
+        function downloadFromByteArray(options) {
+
+            // Convert base64 string to numbers array.
+            const numArray = atob(options.byteArray).split('').map(c => c.charCodeAt(0));
+
+            // Convert numbers array to Uint8Array object.
+            const uint8Array = new Uint8Array(numArray);
+
+            // Wrap it by Blob object.
+            const blob = new Blob([uint8Array], { type: options.contentType });
+
+            // Create "object URL" that is linked to the Blob object.
+            const url = URL.createObjectURL(blob);
+
+            // Invoke download helper function that implemented in
+            // the earlier section of this article.
+            downloadFromUrl({ url: url, fileName: options.fileName });
+
+            // At last, release unused resources.
+            URL.revokeObjectURL(url);
+        }
+    </script>
+    <script src="js/scroll.js"></script>
+    <script src="js/sounds.js"></script>
+    <script src="js/file.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="_content/ChartJs.Blazor.Fork/ChartJsBlazorInterop.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js?v=5.0.5"></script>    
+</body>
+</html>

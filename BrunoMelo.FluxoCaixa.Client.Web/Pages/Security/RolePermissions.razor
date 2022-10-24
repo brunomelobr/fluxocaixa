@@ -1,0 +1,27 @@
+﻿@page "/security/role/{id}/permissions"
+<MudGrid>
+    <MudItem xs="9">
+        <BrunoMelo.FluxoCaixa.Client.Web.Shared.Components.PageTitle Title="@_localizer[nameof(Fields.Permissions)]"
+                   Description="@(ListModelView == null || ListModelView.Count() == 0 ?
+                                  string.Format(_localizerMessages[nameof(Messages.ThereIsNoXRegisteredSoFar)], _localizer[nameof(Fields.Permission)].Value.ToLower())
+                                  : _localizerMensagemEspecifica[nameof(MensagemEspecifica.PermissoesCadastradas)])" />
+    </MudItem>
+    <MudItem xs="3" Class="@MudBlazorCssClass.Build().TitleBarActions()">
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SaveAsync" ButtonType="ButtonType.Submit">@_localizer[nameof(Fields.Save)]</MudButton>
+        <MudButton Variant="Variant.Text" Class="@MudBlazorCssClass.Build().MarginRight(2)" OnClick="(() => GoBack())">@_localizer[nameof(Fields.Back)]</MudButton>
+    </MudItem>
+</MudGrid>
+
+@if (ListModelView != null)
+{
+     <MudTable Hover="true" Elevation="0" Items="@ListModelView">
+        <HeaderContent>
+            <MudTh>@_localizer[nameof(Fields.Name)]</MudTh>
+            <MudTh Style="text-align:center">@_localizer[nameof(Fields.Status)]</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="@_localizer[nameof(Fields.Name)]">@context.Data</MudTd>
+            <MudTd DataLabel="@_localizer[nameof(Fields.Status)]" Style="text-align:center; overflow-y:hidden"><MudCheckBox @bind-Checked="@context.Selected" Size="Size.Small" /></MudTd>
+        </RowTemplate>
+    </MudTable>
+}

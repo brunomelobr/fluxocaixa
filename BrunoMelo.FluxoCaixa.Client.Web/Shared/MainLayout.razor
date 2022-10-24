@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+@using BrunoMelo.FluxoCaixa.Client.Web.Infrastructure.Settings
+
+<audio id="notification" src="/media/notification.mp3" />
+<MudThemeProvider Theme="currentTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <MudLayout>
+            <BarMenu @bind-CurrentTheme="currentTheme" />
+            <MudMainContent>
+                <MudContainer MaxWidth="MaxWidth.False" Class="mt-4">
+                    @Body
+                </MudContainer>
+            </MudMainContent>
+        </MudLayout>
+    </Authorized>
+</AuthorizeView>
